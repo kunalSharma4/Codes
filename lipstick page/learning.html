@@ -1,0 +1,90 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 id="cmon">LipStick picker</h1>
+    <svg  viewBox="0 0 100 100" style="width: 400px " id="lipsSvg">
+   
+      <image id="img1" href="lips.svg"  width="100" height="100" fill="fffff" />
+    </svg>
+    <section id="boxes"></section>
+   
+    <script>
+      const pickColor = function() {
+        const ha = document.querySelector('#cmon');
+        ha.style.color = this.style.backgroundColor;
+        const color = this.getAttribute('data-color');
+        const lipsSvg = document.querySelector('#lipsSvg');
+        const hue = getHue(this); // Get the hue of the clicked box
+        console.log('clicked');
+       
+       lipsSvg.style.filter = `hue-rotate(${hue}deg)`; // Set the hue rotation to the hue of the clicked box
+      
+        
+        lipsSvg.querySelector('image').style.fill = this.style.backgroundColor;
+        
+        // Reset the hue rotation to 0 degrees after each click
+        
+      }
+
+      const colors = ['red', 'orange', 'green', 'yellow', 'brown','black','blue'];
+      const container = document.querySelector('#boxes');
+
+      for (let col of colors) {
+        const box = document.createElement('div');
+        box.style.backgroundColor = col;
+        box.classList.add('box');
+       
+        container.appendChild(box);
+        box.addEventListener('click', pickColor);
+        const hue = getHue(box); // Get the hue of the box element
+        console.log(`${col}: ${hue}`); // Log the hue value to the console
+     
+       
+      }
+    
+      function getHue(element) {
+        const style = window.getComputedStyle(element);
+        const color = style.getPropertyValue('background-color');
+        const match = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        if (!match) {
+          throw new Error(`Invalid color: ${color}`);
+        }
+        const red = parseInt(match[1]);
+        const green = parseInt(match[2]);
+        const blue = parseInt(match[3]);
+        const max = Math.max(red, green, blue);
+        const min = Math.min(red, green, blue);
+        let hue;
+        if (max === min) {
+          hue = 0;
+        } else {
+          const delta = max - min;
+          switch (max) {
+            case red:
+              hue = ((green - blue) / delta) % 6;
+              break;
+            case green:
+              hue = (blue - red) / delta + 2;
+              break;
+            case blue:
+              hue = (red - green) / delta + 4;
+              break;
+          }
+          hue = hue * 60;
+          if (hue < 0) {
+            hue += 360;
+          }
+        }
+        return Math.round(hue);
+      }
+    </script>
+  </body>
+</html>
