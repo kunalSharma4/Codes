@@ -1,0 +1,129 @@
+#gridViewContainer, #loginForm{
+
+  display: flex;
+  /* grid-template-columns: repeat(2, 1fr); */
+  /* grid-gap: 20px; */
+  width: 700px ;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  justify-content: center;
+  flex-basis: 100%;
+  position: relative;
+  border-style: double;
+  align-items: center;
+
+
+}
+
+.gridViewItem {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+form{
+  width: 100%;
+}
+
+#registerForm{
+    display: block;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+input[type="text"], input[type="number"], input[type="email"], input[type="date"], 
+select,
+textarea {
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+   width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  color: #272626;
+  font-size: 18px;
+  border-radius: 6px;
+  transition: transform 0.9s;
+  resize: none;
+  border-bottom: 3px solid #777;
+  transform: translateY(-5px);
+  transition: 0.2s;
+}
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+#submitButton, input[type="submit"] {
+  background-color: #4CAF50;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin:30px 10px 0px 10px;
+}
+
+#submitButton:hover, input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.footer{
+  background: #212151;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px ;
+}
+.footer .f-about{
+   max-width: 500px;
+   position: relative;
+   flex: 1;
+   margin: 50px;
+    
+}
+.footer .f-about h3{
+   padding: 20px;
+}
+.footer .f-about p{
+  font-size: 14px;
+  font-weight: 200;
+  text-align: start;
+}
+.footer .f-about a{
+  color: #fff;
+  margin: 10px;
+  font-size: 30px;
+}
